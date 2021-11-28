@@ -1,0 +1,193 @@
+1)
+import java.util.*;
+
+
+public class Collections1{
+    long phoneNumber;
+    String contactName,email;
+    char gender;
+    public Collections1(long phoneNumber,String contactName,String email,char gender)
+    {
+        this.phoneNumber=phoneNumber;
+        this.contactName=contactName;
+        this.email=email;
+        this.gender=gender;
+    }
+
+}
+class Collections2
+{
+    public static void main(String[] args) {
+        Map<Long,Collections1>map=new TreeMap<>(Collections.reverseOrder());
+        Collections1 c1=new Collections1(82251155L,"Saikumar","saikumarpullakandam78@gmail.com",'M');
+        Collections1 c2=new Collections1(998887776L,"Ramesh","ramesh@gmail.com",'M');
+        Collections1 c3=new Collections1(699888666L,"Vijay","vijay@gmail.com",'M');
+        Collections1 c4=new Collections1(96767656L,"Pavan","pavan@gmail.com",'M');
+        map.put(1L,c1);
+        map.put(2L,c2);
+        map.put(3L,c3);
+        map.put(4L,c4);
+
+
+        for(Map.Entry<Long, Collections1> entry:map.entrySet()){
+            long key=entry.getKey();
+            Collections1 c5=entry.getValue();
+          System.out.println(key+" Details:");//prints all keys
+
+            System.out.println("phone number: "+c5.phoneNumber+" contact name: "+c5.contactName+"email: "+c5.email+" gender: "+c5.gender);
+        }//ABOVE PRINT STATEMENT PRINTS ALLL THE KEY VALUE PAIRS AND DETAILS//
+        System.out.print(" ");
+
+    }
+}
+
+
+2)
+import java.util.*;
+class TreeSet1 {
+
+    public static void main(String args[]){
+        //Creating and adding elements
+        TreeSet<Integer> uniqueVal=new TreeSet<Integer>();
+        uniqueVal.add(1);
+        uniqueVal.add(2);
+        uniqueVal.add(3);
+        uniqueVal.add(4);
+        uniqueVal.add(5);
+        uniqueVal.add(6);
+        uniqueVal.add(7);
+        uniqueVal.add(8);
+        uniqueVal.add(9);
+        uniqueVal.add(10);
+//adding duplicate value to set but it will not store null values ,it simply rejects duplicate at run time
+        uniqueVal.add(10);
+
+        System.out.println(uniqueVal);
+
+        System.out.println("Reverse Set: "+ uniqueVal.descendingSet());
+    }
+}
+
+3)package com.saikumar;
+import java.util.Objects;
+
+
+        class Employee implements Comparable<Employee> {
+                private int id;
+                private String name;
+                private String dept;
+                private int salary;
+                public static String field;
+
+                public Employee() {
+                }
+
+                public Employee(int id, String name, String dept, int salary) {
+                        this.id = id;
+                        this.name = name;
+                        this.dept = dept;
+                        this.salary = salary;
+                }
+
+                public int getId() {
+                        return id;
+                }
+
+                public String getName() {
+                        return name;
+                }
+
+                public String getDept() {
+                        return dept;
+                }
+
+                public int getSalary() {
+                        return salary;
+                }
+
+                @Override
+                public boolean equals(Object o) {
+                        if (this == o) return true;
+                        if (o == null || getClass() != o.getClass()) return false;
+                        Employee employee = (Employee) o;
+                        return id == employee.id && Objects.equals(dept, employee.dept);
+                }
+
+                @Override
+                public int hashCode() {
+                        return Objects.hash(id, dept);
+                }
+
+                @Override
+                public int compareTo(Employee e) {
+                        if (field == "salary") {
+                                return this.getSalary() > e.getSalary() ? 1 : -1;
+                        } else if (field == "id") {
+                                return this.getId() > e.getId() ? 1 : -1;
+                        } else if (field == "name") {
+                                return this.getName().compareTo(e.getName());
+                        } else if (field == "dept") {
+                                return this.getDept().compareTo(e.getDept());
+                        }
+
+
+                        return 0;
+                }
+        }
+
+4)
+package com.saikumar;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.LinkedList;
+import java.util.List;
+
+public class LeapYear {
+    public static void main(String[] args) {
+
+        Date date = new Date("01/09/1999");
+        Date date1 = new Date("10/12/2000");
+        Date date2 = new Date("18/10/2003");
+
+
+        List<Date> dob = new LinkedList<>();
+        dob.add(date);
+        dob.add(date1);
+        dob.add(date2);
+
+
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        for (int i = 0; i < dob.size(); i++) {
+
+            LocalDate up = LocalDate.parse(dob.get(i).date,df);
+            String s=(up).format(df);
+
+
+            if(up.getYear() % 4 == 0) {
+                System.out.println(s + " is an leap year");
+            }else {
+                System.out.println(s + " is not an leap year");
+            }
+        }
+
+
+    }
+
+}
+class Date {
+
+    String date;
+
+    public Date(String date) {
+        super();
+        this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "[date=" + date + "]";
+    }
+
+}
