@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    					http://www.springframework.org/schema/beans/spring-beans.xsd
+    					http://www.springframework.org/schema/util
+                    	http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+                    	
+                    	
+	<bean id="question" class="spring.core.quest2.Question">
+    	<property name="questionId" value="550"/>
+    	<property name="question" value="What is your name?"/>
+    	<property name="answers">
+    		<list>
+    			<value>saikumar</value>
+    			<value>vijay</value>
+    			<value>pavan</value>
+    		</list>
+    	</property>
+    	<!-- <property name="answers">
+    		<set>
+    			<value>saikumar</value>
+    			<value>vijay</value>
+    			<value>pavan</value>
+    		</set>
+    	</property> -->
+    	<!-- <property name="answers">
+    		<map>
+    			<entry key="1" value="saikumar"/>
+    			<entry key="2" value="vijay"/>
+    			<entry key="3" value="pavan"/>
+    		</map>
+    	</property> -->
+    </bean>
+    
+    
+</beans>
