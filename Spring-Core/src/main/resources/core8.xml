@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    					http://www.springframework.org/schema/beans/spring-beans.xsd
+    					http://www.springframework.org/schema/context
+        				https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="address" class="spring.core.quest8.Address">
+    	<property name="street" value="srinivas nagar"/>
+    	<property name="city" value="khammam"/>
+    	<property name="state" value="Telangana"/>
+    	<property name="zip" value="507003"/>
+    	<property name="country" value="India"/>
+    </bean>
+    
+    <bean id="customer" class="spring.core.quest8.Customer" init-method="myInit" destroy-method="destroy">
+    	<property name="id" value="508"/>
+    	<property name="name" value="Saikumar"/>
+    	<property name="contact" value="9848257705"/>
+    </bean>
+    
+    <context:annotation-config/>
+    <context:component-scan base-package="spring.core.quest8"/>
+    
+</beans>
